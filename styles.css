@@ -100,10 +100,20 @@ a{color:var(--accent-strong);}
 
 /* ---- Header ---- */
 .site-header{padding:20px 0; border-bottom:1px solid var(--line);}
-.header-row{display:flex; align-items:center; justify-content:space-between;}
-.brand{display:flex; align-items:center; gap:9px; color:var(--ink);}
+.header-row{display:flex; align-items:center; justify-content:space-between; gap:16px;}
+.header-left{display:flex; align-items:center; gap:20px; min-width:0;}
+.brand{display:flex; align-items:center; gap:9px; color:var(--ink); flex-shrink:0;}
 .brand-mark{color:var(--accent); display:flex;}
 .brand-name{font-family:'Bricolage Grotesque', sans-serif; font-weight:700; font-size:1.15rem; letter-spacing:-0.01em;}
+.header-nav{border-left:1px solid var(--line); padding-left:20px; min-width:0; overflow:hidden;}
+.header-nav a{
+  font-size:13.5px; font-weight:600; color:var(--ink-soft); text-decoration:none;
+  white-space:nowrap;
+}
+.header-nav a:hover{color:var(--accent-strong);}
+@media (max-width:480px){
+  .header-nav{display:none;}
+}
 .theme-toggle{
   width:38px; height:38px; border-radius:50%;
   border:1px solid var(--line); background:var(--surface); color:var(--ink-soft);
