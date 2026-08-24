@@ -182,6 +182,16 @@
     });
   }
 
+  function initToolsMenu() {
+    var menu = document.querySelector('.tools-menu');
+    if (!menu) return;
+    document.addEventListener('click', function (e) {
+      if (menu.hasAttribute('open') && !menu.contains(e.target)) {
+        menu.removeAttribute('open');
+      }
+    });
+  }
+
   function initAdblockNotice() {
     var banner = document.getElementById('adblockBanner');
     var dismiss = document.getElementById('adblockDismiss');
@@ -233,4 +243,5 @@
   initTheme();
   initAdblockNotice();
   initBannerScale();
+  initToolsMenu();
 })();
