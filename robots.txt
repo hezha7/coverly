@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://materially.site/sitemap.xml
+Sitemap: https://www.materially.site/sitemap.xml

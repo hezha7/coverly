@@ -2,7 +2,7 @@
 
 Static site, no build step, no backend. Open `index.html` directly or serve the folder with any static host.
 
-Live at [materially.site](https://materially.site/), deployed via Vercel from this repo.
+Live at [materially.site](https://www.materially.site/), deployed via Vercel from this repo.
 
 ## Pages
 
