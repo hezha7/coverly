@@ -74,6 +74,30 @@ h1,h2{font-family:'Bricolage Grotesque', 'Manrope', sans-serif; font-weight:600;
 a{color:var(--accent-strong);}
 :focus-visible{outline:2px solid var(--accent); outline-offset:2px;}
 
+/* ---- Adblock banner ---- */
+.adblock-banner{
+  background:var(--accent-soft);
+  border-bottom:1px solid var(--line);
+}
+.adblock-banner[hidden]{display:none;}
+.adblock-row{
+  display:flex; align-items:center; justify-content:space-between; gap:16px;
+  padding:10px 24px;
+}
+.adblock-row p{
+  margin:0; font-size:13.5px; color:var(--ink); font-weight:600; max-width:70ch;
+}
+.adblock-row button{
+  flex-shrink:0;
+  width:26px; height:26px; border-radius:50%;
+  border:none; background:transparent; color:var(--ink-soft);
+  font-size:18px; line-height:1; cursor:pointer;
+}
+.adblock-row button:hover{color:var(--ink);}
+@media (max-width:640px){
+  .adblock-row{flex-direction:column; align-items:flex-start;}
+}
+
 /* ---- Header ---- */
 .site-header{padding:20px 0; border-bottom:1px solid var(--line);}
 .header-row{display:flex; align-items:center; justify-content:space-between;}

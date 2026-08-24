@@ -182,6 +182,30 @@
     });
   }
 
+  function initAdblockNotice() {
+    var banner = document.getElementById('adblockBanner');
+    var dismiss = document.getElementById('adblockDismiss');
+    var dismissed = false;
+    try { dismissed = localStorage.getItem('coverly-adblock-dismissed') === '1'; } catch (e) {}
+    if (dismissed) return;
+
+    var bait = document.createElement('div');
+    bait.className = 'adsbox ad-banner ad-placement adsbygoogle';
+    bait.style.cssText = 'position:absolute; left:-9999px; top:-9999px; width:2px; height:2px;';
+    document.body.appendChild(bait);
+
+    setTimeout(function () {
+      var blocked = !bait.offsetParent || bait.offsetHeight === 0 || getComputedStyle(bait).display === 'none';
+      bait.parentNode.removeChild(bait);
+      if (blocked) banner.hidden = false;
+    }, 400);
+
+    dismiss.addEventListener('click', function () {
+      banner.hidden = true;
+      try { localStorage.setItem('coverly-adblock-dismissed', '1'); } catch (e) {}
+    });
+  }
+
   els.form.addEventListener('input', function (e) {
     if (e.target.name === 'units') { onUnitChange(); return; }
     calculate();
@@ -192,4 +216,5 @@
   calculate();
   buildReferenceTable();
   initTheme();
+  initAdblockNotice();
 })();
