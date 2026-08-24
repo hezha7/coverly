@@ -288,3 +288,5 @@ tr:last-child td{border-bottom:none;}
 /* ---- Footer ---- */
 .site-footer{border-top:1px solid var(--line); padding:28px 0 48px;}
 .site-footer p{font-size:13px; color:var(--ink-faint); margin:0;}
+.site-footer p.footer-links{margin-bottom:10px;}
+.footer-links a{color:var(--ink-soft); font-weight:600;}
