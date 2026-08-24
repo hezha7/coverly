@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paint Calculator – How Much Paint Do I Need?</title>
+<meta name="description" content="Free paint calculator. Enter your room size and instantly find out how much paint you need, including coats, doors, windows, and how many cans to buy. No sign-up.">
+<link rel="canonical" href="https://example.com/">
+<meta name="theme-color" content="#D9491F">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Paint Calculator – How Much Paint Do I Need?">
+<meta property="og:description" content="Free paint calculator. Enter your room size and instantly find out how much paint you need, including coats, doors, windows, and how many cans to buy.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Paint Calculator – How Much Paint Do I Need?">
+<meta name="twitter:description" content="Free paint calculator for any room. No sign-up, works in feet or meters.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Paint Calculator",
+  "url": "https://example.com/",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "description": "Free online calculator that tells you how much paint you need for a room, based on wall area, coats, doors and windows."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much paint do I need for a 12x12 room?",
+      "acceptedAnswer": { "@type": "Answer", "text": "A 12x12 ft room with 8 ft ceilings has about 320 sq ft of wall area before subtracting doors and windows. At two coats and 350 sq ft of coverage per gallon, that's roughly 1.7-2 gallons of paint, or about 3 gallons if you're also painting the ceiling. Enter your exact dimensions in the calculator above for a precise number." }
+    },
+    {
+      "@type": "Question",
+      "name": "How many coats of paint do I need?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Most walls need two coats for even, opaque coverage. One coat can work over a similar existing color with a high-quality paint. Three coats are common when going from a dark wall to a much lighter color, or when using budget paint with weaker hiding power." }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does a gallon of paint cover?",
+      "acceptedAnswer": { "@type": "Answer", "text": "A gallon of paint typically covers 300-400 square feet per coat on smooth walls, with 350 sq ft being a standard estimate. Textured or unprimed surfaces absorb more and may only get 250-300 sq ft per gallon." }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to subtract doors and windows from paint calculations?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes, for accuracy. A standard door takes up about 21 sq ft (2 sq m) and a standard window about 15 sq ft (1.4 sq m) of wall area that doesn't get painted. Skipping this step usually only overestimates paint slightly, so it's fine to ignore for small rooms if you'd rather round up." }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<a class="skip-link" href="#calculator">Skip to calculator</a>
+
+<header class="site-header">
+  <div class="wrap header-row">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 32 32" width="26" height="26">
+          <circle cx="16" cy="16" r="15" fill="none" stroke="currentColor" stroke-width="2"/>
+          <path d="M16 6 L16 26 M6 16 L26 16" stroke="currentColor" stroke-width="2" opacity="0.35"/>
+        </svg>
+      </span>
+      <span class="brand-name">Coverly</span>
+    </div>
+    <button id="themeToggle" class="theme-toggle" type="button" aria-label="Toggle dark mode">
+      <svg class="icon-sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="none" stroke="currentColor" stroke-width="1.8"/><g stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></g></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" d="M20 14.5A8.5 8.5 0 1 1 9.5 4a6.8 6.8 0 0 0 10.5 10.5Z"/></svg>
+    </button>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <div class="swatch-row" aria-hidden="true">
+        <span class="swatch" style="--sw:#C9502F"></span>
+        <span class="swatch" style="--sw:#3E7D64"></span>
+        <span class="swatch" style="--sw:#D9A441"></span>
+        <span class="swatch" style="--sw:#3E5C8A"></span>
+        <span class="swatch" style="--sw:#8A5A9E"></span>
+      </div>
+      <h1>How much paint do you actually need?</h1>
+      <p class="hero-sub">Enter your room's dimensions and get a precise answer in gallons, liters, and cans — no sign-up, no guessing, no leftover cans of "eh, close enough."</p>
+    </div>
+  </section>
+
+  <section id="calculator" class="calculator-section">
+    <div class="wrap calc-grid">
+
+      <form class="calc-form" id="calcForm" aria-label="Paint calculator inputs">
+        <div class="field-row units-row">
+          <span class="field-label">Units</span>
+          <div class="segmented" role="radiogroup" aria-label="Measurement units">
+            <input type="radio" name="units" id="unitFt" value="ft" checked>
+            <label for="unitFt">Feet</label>
+            <input type="radio" name="units" id="unitM" value="m">
+            <label for="unitM">Meters</label>
+          </div>
+        </div>
+
+        <div class="field-grid">
+          <div class="field">
+            <label for="length">Room length <span class="unit-suffix" data-unit>ft</span></label>
+            <input type="number" id="length" inputmode="decimal" min="0" step="0.1" value="12">
+          </div>
+          <div class="field">
+            <label for="width">Room width <span class="unit-suffix" data-unit>ft</span></label>
+            <input type="number" id="width" inputmode="decimal" min="0" step="0.1" value="10">
+          </div>
+          <div class="field">
+            <label for="height">Wall height <span class="unit-suffix" data-unit>ft</span></label>
+            <input type="number" id="height" inputmode="decimal" min="0" step="0.1" value="8">
+          </div>
+        </div>
+
+        <div class="field-grid">
+          <div class="field">
+            <label for="doors">Doors</label>
+            <input type="number" id="doors" inputmode="numeric" min="0" step="1" value="1">
+          </div>
+          <div class="field">
+            <label for="windows">Windows</label>
+            <input type="number" id="windows" inputmode="numeric" min="0" step="1" value="1">
+          </div>
+          <div class="field">
+            <label for="coats">Coats</label>
+            <select id="coats">
+              <option value="1">1 coat</option>
+              <option value="2" selected>2 coats</option>
+              <option value="3">3 coats</option>
+            </select>
+          </div>
+        </div>
+
+        <label class="checkbox-row">
+          <input type="checkbox" id="includeCeiling">
+          <span>Also paint the ceiling</span>
+        </label>
+
+        <details class="advanced">
+          <summary>Advanced options</summary>
+          <div class="field-grid">
+            <div class="field">
+              <label for="coverage">Coverage <span class="unit-suffix" data-coverage-unit>sq ft / gallon</span></label>
+              <input type="number" id="coverage" inputmode="decimal" min="1" step="1" value="350">
+            </div>
+            <div class="field">
+              <label for="canSize">Can size</label>
+              <select id="canSize"></select>
+            </div>
+            <div class="field">
+              <label for="price">Price per can <span class="unit-suffix">optional</span></label>
+              <input type="number" id="price" inputmode="decimal" min="0" step="0.01" placeholder="0.00">
+            </div>
+          </div>
+        </details>
+      </form>
+
+      <aside class="results" aria-live="polite">
+        <div class="results-card">
+          <div class="result-headline">
+            <span class="result-num" id="resultCans">2</span>
+            <span class="result-unit" id="resultCansLabel">gallon cans</span>
+          </div>
+          <p class="result-caption">for <span id="resultCoats">2</span> coats over <span id="resultArea">280</span> <span id="resultAreaUnit">sq ft</span> of paintable surface</p>
+
+          <div class="result-breakdown">
+            <div class="breakdown-row">
+              <span>Total paint needed</span>
+              <span class="mono" id="breakVolume">2.3 gal</span>
+            </div>
+            <div class="breakdown-row">
+              <span>Wall area</span>
+              <span class="mono" id="breakWalls">304 sq ft</span>
+            </div>
+            <div class="breakdown-row" id="breakCeilingRow" hidden>
+              <span>Ceiling area</span>
+              <span class="mono" id="breakCeiling">120 sq ft</span>
+            </div>
+            <div class="breakdown-row">
+              <span>Doors &amp; windows deducted</span>
+              <span class="mono" id="breakOpenings">36 sq ft</span>
+            </div>
+            <div class="breakdown-row" id="breakCostRow" hidden>
+              <span>Estimated cost</span>
+              <span class="mono" id="breakCost">$0.00</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="ad-slot" aria-hidden="true"><!-- Adsterra native/banner unit goes here --></div>
+      </aside>
+
+    </div>
+  </section>
+
+  <section class="reference-section">
+    <div class="wrap">
+      <h2>Quick reference: common room sizes</h2>
+      <p class="section-sub">Rough estimates at 8 ft ceilings, 2 coats, one door and one window deducted. Use the calculator above for your exact numbers.</p>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr><th>Room size</th><th>Wall area</th><th>Paint needed</th><th>Cans (1 gal)</th></tr>
+          </thead>
+          <tbody id="refTable"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="wrap">
+      <h2>Common questions</h2>
+      <div class="faq-list">
+        <details class="faq-item" open>
+          <summary>How much paint do I need for a 12x12 room?</summary>
+          <p>A 12×12 ft room with 8 ft ceilings has about 320 sq ft of wall area before subtracting doors and windows. At two coats and 350 sq ft of coverage per gallon, that's roughly 1.7–2 gallons, or about 3 gallons if you're also painting the ceiling. Use the calculator above with your exact numbers for a precise figure.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How many coats of paint do I need?</summary>
+          <p>Most walls need two coats for even, opaque coverage. One coat can work when you're repainting over a very similar color with a high-quality paint. Three coats are common when covering a dark wall with a much lighter color, or when using a budget paint with weaker hiding power.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How much does a gallon of paint cover?</summary>
+          <p>A gallon typically covers 300–400 sq ft per coat on smooth, primed walls — 350 sq ft is a reasonable middle estimate, and what this calculator uses by default. Textured or unprimed drywall absorbs more paint and may only get 250–300 sq ft per gallon, so bump up the "advanced" coverage field if that's your situation.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Do I need to subtract doors and windows from paint calculations?</summary>
+          <p>Yes, for accuracy — a standard door takes up about 21 sq ft (2 sq m) and a standard window about 15 sq ft (1.4 sq m) of wall that won't get painted. If you'd rather just round up and buy slightly more paint than you need, it's safe to leave both fields at zero.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Should I paint the ceiling with the same paint?</summary>
+          <p>No — ceilings are almost always painted with a flat, ceiling-specific paint that hides imperfections and doesn't reflect light. If you're including the ceiling in this calculator, treat it as a separate can purchase from your wall color.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>Coverly is a free calculator. It doesn't store anything you type — every number stays in your browser.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
