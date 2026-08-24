@@ -193,12 +193,29 @@ input[type="number"]:focus, select:focus{border-color:var(--accent); outline:non
 .breakdown-row .mono{font-family:'IBM Plex Mono', monospace; font-variant-numeric:tabular-nums; font-weight:600;}
 
 .ad-slot{
-  min-height:250px;
-  border:1px dashed var(--line);
+  min-height:624px;
+  border:1px solid var(--line);
   border-radius:var(--radius);
   background:var(--surface-soft);
-  display:flex; align-items:center; justify-content:center;
+  display:flex; flex-direction:column; align-items:center; justify-content:flex-start;
+  gap:10px;
+  padding:10px 0;
 }
+.ad-label{
+  font-family:'IBM Plex Mono', monospace;
+  font-size:10.5px;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  color:var(--ink-faint);
+}
+.native-ad-section{
+  padding:8px 0 40px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:8px;
+}
+.native-ad-section .wrap{display:flex; flex-direction:column; align-items:center; gap:8px;}
 
 /* ---- Reference table ---- */
 .reference-section, .faq-section{padding:48px 0;}
