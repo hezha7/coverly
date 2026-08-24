@@ -169,7 +169,7 @@
   function initTheme() {
     var toggle = document.getElementById('themeToggle');
     var stored = null;
-    try { stored = localStorage.getItem('coverly-theme'); } catch (e) {}
+    try { stored = localStorage.getItem('materially-theme'); } catch (e) {}
     if (stored === 'light' || stored === 'dark') {
       document.documentElement.setAttribute('data-theme', stored);
     }
@@ -178,7 +178,7 @@
       var current = document.documentElement.getAttribute('data-theme') || (prefersDark ? 'dark' : 'light');
       var next = current === 'dark' ? 'light' : 'dark';
       document.documentElement.setAttribute('data-theme', next);
-      try { localStorage.setItem('coverly-theme', next); } catch (e) {}
+      try { localStorage.setItem('materially-theme', next); } catch (e) {}
     });
   }
 
@@ -186,7 +186,7 @@
     var banner = document.getElementById('adblockBanner');
     var dismiss = document.getElementById('adblockDismiss');
     var dismissed = false;
-    try { dismissed = localStorage.getItem('coverly-adblock-dismissed') === '1'; } catch (e) {}
+    try { dismissed = localStorage.getItem('materially-adblock-dismissed') === '1'; } catch (e) {}
     if (dismissed) return;
 
     var bait = document.createElement('div');
@@ -202,8 +202,23 @@
 
     dismiss.addEventListener('click', function () {
       banner.hidden = true;
-      try { localStorage.setItem('coverly-adblock-dismissed', '1'); } catch (e) {}
+      try { localStorage.setItem('materially-adblock-dismissed', '1'); } catch (e) {}
     });
+  }
+
+  function initBannerScale() {
+    var wrap = document.getElementById('banner728Wrap');
+    var banner = document.getElementById('banner728');
+    if (!wrap || !banner) return;
+
+    function resize() {
+      var scale = Math.min(1, wrap.clientWidth / 728);
+      banner.style.transform = 'scale(' + scale + ')';
+      wrap.style.height = Math.round(90 * scale) + 'px';
+    }
+
+    resize();
+    window.addEventListener('resize', resize);
   }
 
   els.form.addEventListener('input', function (e) {
@@ -217,4 +232,5 @@
   buildReferenceTable();
   initTheme();
   initAdblockNotice();
+  initBannerScale();
 })();

@@ -217,13 +217,14 @@ input[type="number"]:focus, select:focus{border-color:var(--accent); outline:non
 .breakdown-row .mono{font-family:'IBM Plex Mono', monospace; font-variant-numeric:tabular-nums; font-weight:600;}
 
 .ad-slot{
-  min-height:624px;
+  min-height:120px;
   border:1px solid var(--line);
   border-radius:var(--radius);
   background:var(--surface-soft);
   display:flex; flex-direction:column; align-items:center; justify-content:flex-start;
   gap:10px;
-  padding:10px 0;
+  padding:14px;
+  overflow:hidden;
 }
 .ad-label{
   font-family:'IBM Plex Mono', monospace;
@@ -239,7 +240,22 @@ input[type="number"]:focus, select:focus{border-color:var(--accent); outline:non
   align-items:center;
   gap:8px;
 }
-.native-ad-section .wrap{display:flex; flex-direction:column; align-items:center; gap:8px;}
+.native-ad-section .wrap{display:flex; flex-direction:column; align-items:center; gap:8px; width:100%;}
+
+.banner-728-wrap{
+  width:100%;
+  min-width:0;
+  max-width:728px;
+  display:flex;
+  justify-content:center;
+  overflow:hidden;
+}
+.banner-728{
+  width:728px;
+  height:90px;
+  flex-shrink:0;
+  transform-origin:top center;
+}
 
 /* ---- Reference table ---- */
 .reference-section, .faq-section{padding:48px 0;}
